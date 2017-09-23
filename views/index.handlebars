@@ -1,10 +1,10 @@
 <h1 class="text-center">Eat-Da-Burger!</h1>
 
 <div class="container">
-   
         <div class="row">
             <div class="col-md-6">
-                <ul>
+                <h3>Ready To Eat!</h2>
+            
                     {{#each burgers}}
                         {{#unless this.devoured}}
                             <li>
@@ -18,11 +18,13 @@
                             </li>
                         {{/unless}}
                     {{/each}}
-                </ul>
+            
             </div>
 
+           
             <div class="col-md-6">
-                <ul>
+                <h3>Already Eaten!</h2>
+                
                     {{#each burgers}}
                         {{#if this.devoured}}
                             <li>
@@ -30,7 +32,7 @@
                             </li>
                         {{/if}}
                     {{/each}}
-                </ul>
+            
             </div> 
 
         </div>
