@@ -1,6 +1,6 @@
 // Dependencies
 var express = require('express');
-var burgerActions = require('../models/burger.js');
+var burger= require('../models/burger.js');
 var router = express.Router();
 
 // Routes
@@ -11,7 +11,7 @@ router.get('/', function(req, res) {
 
 // Index page
 router.get('/index', function(req, res) {
-    burgerActions.selectAll(function(data) {
+    burger.selectAll(function(data) {
         var hbsObj = {burgers: data}
         console.log(hbsObj);
         res.render('index', hbsObj);
@@ -20,10 +20,10 @@ router.get('/index', function(req, res) {
 
 // Creating a new burger
 router.post('/burger/create', function(req, res) {
-    burgerActions.insertOne([
-        'burger_name'
+    burger.insertOne([
+        'burger_name', 'devoured'
     ], [
-        req.body.burger_name
+        req.body.burger_name, false
     ], function(data) {
         res.redirect('/');
     });
@@ -33,7 +33,7 @@ router.post('/burger/create', function(req, res) {
 router.put('/burger/:id', function(req, res) {
     var condition = 'id =' + req.params.id;
 
-    burgerActions.updateOne({
+    burger.updateOne({
         devoured: true
     }, condition, function(data) {
         res.redirect('/');
