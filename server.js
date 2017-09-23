@@ -14,7 +14,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-require('./controllers/burgers_controller.js')(app);
+var routes = require('./controllers/burgers_controller.js')
+app.use('/', routes);
 
 app.listen(port);
 console.log("APP is listening on port: " + port);

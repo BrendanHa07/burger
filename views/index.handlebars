@@ -1,2 +1,55 @@
-<h1>Eat-Da-Burger!!</h1>
+ <h1 class="text-center">Eat-Da-Burger!</h1>
 
+<div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <ul>
+                    {{#each burger}}
+                        {{#unless this.devoured}}
+                            <li>
+                                {{this.name}}
+
+                                <form action="burger/update/{{this.id}}?_method=PUT" method="POST">
+                                    <input type="hidden" name="devoured" value="true">
+                                    <button type="submit">DEVOUR!</button>
+                                </form>
+
+                                {{> burger/delete-burger}}
+                            </li>
+                        {{/unless}}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+
+        <div>
+            <ul>
+                {{#each cats}}
+                    {{#if this.sleepy}}
+                        <li>
+                            {{this.name}}
+
+                            <form action="/{{this.id}}?_method=PUT" method="POST">
+                            <input type="hidden" name="sleepy" value="false">
+                            <button type="submit">WAKE UP!</button>
+                            </form>
+
+                            {{> cats/delete-cat}}
+                        </li>
+                    {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    
+    
+
+
+
+
+    <p class="text-center">What burger would you like to make?</p>
+    <form action="/burger/create" method="post">
+            <center><textarea name="burger_name" id="new_burger" cols="60" rows="6"></textarea></center>
+    </form>
+        <center><button class="btn btn-primary" id="submit" type="submit">Burger Me!</button></center>
+        
+</div>
