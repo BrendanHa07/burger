@@ -1,6 +1,6 @@
 // Dependencies
 var express = require('express');
-var burger= require('../models/burger.js');
+var burger = require('../models/burger.js');
 var router = express.Router();
 
 // Routes
@@ -9,7 +9,7 @@ router.get('/', function(req, res) {
     res.redirect('/index');
 });
 
-// Index page
+// Index page that grabs all the burgers
 router.get('/index', function(req, res) {
     burger.selectAll(function(data) {
         var hbsObj = {burgers: data}
@@ -25,7 +25,7 @@ router.post('/burger/create', function(req, res) {
     ], [
         req.body.burger_name, false
     ], function(data) {
-        res.redirect('/');
+        res.redirect('/index');
     });
 });
 

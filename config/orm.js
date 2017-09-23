@@ -2,14 +2,14 @@ var connection = require('./connection.js');
 
 // Helper functions for SQL syntax
 function printQuestionMarks(num) {
-    var arr = [];
-  
-    for (var i = 0; i < num; i++) {
-      arr.push("?");
-    }
-  
-    return arr.toString();
-  };
+  var arr = [];
+
+  for (var i = 0; i < num; i++) {
+    arr.push("?");
+  }
+
+  return arr.toString();
+}
 
 function objToSql(ob) {
   var arr = [];
@@ -21,11 +21,10 @@ function objToSql(ob) {
   }
 
   return arr.toString();
-};
-
+}
 var orm = {
     selectAll: function (tableInput, cb) {
-        var queryString = "SELECT* FROM " + tableInput;
+        var queryString = "SELECT* FROM " + tableInput + ";";
         connection.query(queryString, function(err, result) {
             if (err) throw err;
             cb(result);
