@@ -2,7 +2,7 @@
 
 <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <h3>Ready To Eat!</h2>
             
                     {{#each burgers}}
@@ -21,8 +21,18 @@
             
             </div>
 
+
+                    <div class="col-md-4">
+                        <p class="text-center">What burger would you like to make?</p>
+                            <form action="/burger/create" method="post">
+                                <center><textarea name="burger_name" id="new_burger" cols="60" rows="6"></textarea></center>
+                                <center><button class="btn btn-primary" id="submit" type="submit">Burger Me!</button></center>
+                            </form>
+                        
+                    </div>
            
-            <div class="col-md-6">
+           
+            <div class="col-md-4">
                 <h3>Already Eaten!</h2>
                 
                     {{#each burgers}}
@@ -37,16 +47,9 @@
 
         </div>
     
-        <div class="row">
-            <div class="col-md-12">
-                <p class="text-center">What burger would you like to make?</p>
-                    <form action="/burger/create" method="post">
-                        <center><textarea name="burger_name" id="new_burger" cols="60" rows="6"></textarea></center>
-                         <center><button class="btn btn-primary" id="submit" type="submit">Burger Me!</button></center>
-                    </form>
-                   
-            </div>
-        </div>
+       
+           
+        
     
         
 </div>
