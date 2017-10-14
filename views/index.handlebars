@@ -10,7 +10,7 @@
                             <li>
                                 {{this.id}}. {{this.burger_name}}
 
-                                <form action="burger/{{this.id}}?_method=put" method="post">
+                                <form action="burger/{{this.id}}" method="post">
                                     <input type="hidden" name="devoured" value="true">
                                     <button type="submit" class="btn btn-danger">DEVOUR!</button>
                                 </form>
